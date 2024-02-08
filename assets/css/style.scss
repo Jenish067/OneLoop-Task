@@ -1,0 +1,1359 @@
+
+// Importing Google font for the project
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+
+html{
+  scroll-behavior: smooth;
+}
+
+// Defining Color used 
+
+$black:#000000;
+$gray:#0b0c10;
+$blue:#66fcf1;
+$darkblue:#467572;
+$orange:#f78550;
+$white:#fff;
+
+// Specifying certain predefined Style within the website
+*{
+  // background-color: $black;
+  font-family: 'Lato', sans-serif;
+  margin: 0; padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  text-decoration: none;
+  text-transform: capitalize;
+  transition: .2s linear;
+}
+
+
+@mixin gird($val){
+  display: grid;
+  grid-template-columns: repeat(auto fit, minmax($val, 1fr));
+  // gap:1.5rem;
+}
+
+html{
+  font-size: 70%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+
+  &::-webkit-scrollbar{
+    width: 1rem;
+  }
+
+  &::-webkit-scrollbar-track{
+    background: $white;
+  }
+
+  &::-webkit-scrollbar-thumb{
+    background: $black;
+  }
+
+
+  // Styling The header
+
+  .header{
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    padding: 2rem 9%;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    background: $black;
+  }
+
+  .logo{
+    margin-right: auto;
+    font-size: 2.5rem;
+
+  }
+
+  .logo a{
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    color:$white;
+    font-weight: bold;
+    gap: 1rem;
+  }
+
+  .logo a:hover{
+    color: $blue;
+    text-decoration: underline;
+  }
+
+// Styling the Navbar and Navbar and its element 
+
+  .navbar{
+
+    // Styling Dropdown in navbar
+
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      padding-top: 30px;
+      background-color: $black;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+    
+   
+    .dropdown-content a {
+      margin: auto;
+      color: $white;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+    
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+   
+    // Styling navbar elements
+
+    a{
+      margin-left: 2rem;
+      font-size: 1.5rem;
+      color: $white;
+      font-weight: bold;
+    }
+
+    a .shopping_bag{
+      color: $blue;
+    }
+    a .shopping_bag:hover{
+      color: $darkblue;
+    }
+
+    .login:hover{
+      color: $blue;
+    }
+
+    .btn_submit{
+      width: 150px;
+      height: 50px;
+      background-color: inherit;
+      color: $white;
+      font-weight: bold;
+      font-size: 1.5rem;
+      margin-left: 20px;
+      border: 2px solid $blue;
+    }
+
+    .btn_submit:hover{
+      cursor: pointer;
+      background-color: $blue;
+      color: $black;
+    }
+  }
+  
+}
+
+#nav_close{
+  font-size: 5rem;
+  color: $white;
+  cursor: pointer;
+  display: none;
+}
+
+
+
+// Style for hamburger menu
+
+.icons a,
+.icons div{
+  font-size: 2.5rem;
+  margin-left: 2rem;
+  cursor: pointer;
+  color: $white;
+}
+
+#menu_btn{
+  display:none;
+}
+
+// Styling Hero Section
+section{
+  padding: 5rem 9%;
+}
+
+.btn{
+  margin-top: 1rem;
+  display: inline-block;
+  background-color: $blue;
+  color: $black;
+  cursor: pointer;
+  font-size: 1.7rem;
+  padding: 1rem 3rem;
+  margin-top: 50px;
+}
+
+.btn:hover{
+  background-color: $orange;
+}
+
+// Styling Play button
+.btn_2{
+  text-decoration: none;
+  background:$blue;
+  border: 2px $black;
+  color: $black;
+  border-radius: 50%;
+  padding: 2rem;
+  margin-left:20px ;
+  position: relative;
+}
+
+.btn_2::after {
+  position: absolute;
+  content: '';
+  bottom: -7px;
+  top: -7px;
+  left: -7px;
+  right: -7px;
+  background-color: transparent;
+  border-radius: 50%;
+  border: 4px solid #fff;
+  margin: 0px;
+  opacity: 1;
+  transform-origin: center;
+  animation: anim 800ms linear infinite;
+}
+
+.btn_2::before {
+  position: absolute;
+  content: '';
+  bottom: -7px;
+  top: -7px;
+  left: -7px;
+  right: -7px;
+  background-color: transparent;
+  border-radius: 50%;
+  border: 4px solid #fff;
+  opacity: 0.8;
+  transform-origin: center;
+  animation: anim 800ms linear 400ms infinite;
+}
+
+@keyframes anim {
+  from {
+      margin: 0px;
+      opacity: 1;
+  }
+
+  to {
+      margin: -15px;
+      opacity: 0;
+  }
+}
+
+.grab{
+  width: 40px;
+  border: 2px solid $blue;
+  color: $blue;
+  // display: none;
+}
+
+.grab:hover{
+  background-color:$blue;
+  color: $black;
+}
+
+
+.hero{
+  padding: 0;
+
+  .box{
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background-size: cover !important;
+    background-position: center !important;
+    justify-content: flex-start;
+    padding: 2rem 9%
+  }
+
+  .content{
+    width: 50rem;
+
+  .intro{
+      font-size: 3rem;
+      color: $blue;
+      padding: .5rem;
+    }
+
+
+    h2{
+      font-weight: bold;
+      font-size: 5rem;
+      color: $white;
+      padding: .5rem;
+      text-transform: capitalize;
+    }
+
+    p{
+      font-weight: bold;
+      line-height: 2;
+      font-size: 1.4rem;
+      color: $white;
+      padding: .5rem;
+    }
+
+    .intro_2{
+      margin-left: 15px;
+      font-size: 2rem;
+      color: $white;
+
+    }
+  }
+
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after{
+  font-size:2rem;
+}
+
+// Styling Another Section
+
+.main_div{
+  background-color: $gray;
+  align-items: center;
+  height: 70vh;
+  width: 100vw;
+  display: flex;
+}
+
+.div_major{
+  background-color: $gray;
+  margin-left: 50px;
+  width: 30vw;
+  border: 2px solid $blue;
+  height: 40vh;
+
+  h1{
+    margin-top: 20px;
+    margin-left: 10px;
+    font-size: 3rem;
+    color: $white;
+  }
+
+  p{
+    margin-top: 20px;
+    margin-left: 10px;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: $white;
+  }
+
+  .div_text{
+    background-color: $gray;
+    margin-top: 20px;
+    font-size: 3rem;
+    color: $white;
+    margin-left: 20px;
+  }
+
+  .text{
+    background-color: $gray;
+    margin-top: 10px;
+    font-size: 1.5rem;
+    margin-left: 20px;
+    color: $white;
+    line-height: 2;
+  }
+
+  .div_btn{
+    background-color: $gray;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    height: 50px;
+    width: 120px;
+    background-color: inherit;
+    color: $blue;
+    border: 2px solid $blue;
+    margin-left: 20px;
+  }
+
+  .div_btn:hover{
+    cursor: pointer;
+    background-color: $blue;
+    color: $black;
+  }
+}
+
+.div_2{
+  background-color: $gray;
+  margin-left: 50px;
+  width: 30vw;
+  height: 40vh;
+
+  a i{
+    background-color: $gray;
+    color: $darkblue;
+    font-size: 3rem;
+    border-radius: 1px solid $blue;
+  }
+
+  a h1{
+    background-color: $gray;
+    font-weight: bold;
+    margin-left: 20px;
+    font-size: 2rem;
+    color: $white;
+    display: inline-block;
+  }
+
+  a h1:hover{
+    text-decoration: underline;
+    color: $blue;
+  }
+
+  .text_1{
+    background-color: $gray;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 1.3rem;
+    margin-left: 45px;
+    color: $white;
+    line-height: 2;
+  }
+
+  .text_2{
+    background-color: $gray;
+    font-weight: bold;
+    margin-top: 20px;
+    font-size: 1.3rem;
+    margin-left: 45px;
+    color: $white;
+    line-height: 2;
+  }
+}
+
+.div_3{
+  background-color: $gray;
+  margin-left: 50px;
+  width: 27vw;
+  height: 40vh;
+
+  a i{
+    background-color: $gray;
+    color: $darkblue;
+    font-size: 3rem;
+    border-radius: 1px solid $blue;
+  }
+
+  a h1{
+    background-color: $gray;
+    font-weight: bold;
+    margin-left: 20px;
+    font-size: 2rem;
+    color: $white;
+    display: inline-block;
+  }
+
+  a h1:hover{
+    text-decoration: underline;
+    color: $blue;
+  }
+
+  .text_1{
+    background-color: $gray;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 1.3rem;
+    margin-left: 45px;
+    color: $white;
+    line-height: 2;
+  }
+
+  .text_2{
+    background-color: $gray;
+    font-weight: bold;
+    margin-top: 20px;
+    font-size: 1.3rem;
+    margin-left: 45px;
+    color: $white;
+    line-height: 2;
+  }
+}
+
+// Styling Section With Images
+.img_section{
+  background-color: $gray;
+  align-items: center;
+  height: 100vh;
+
+  .div_img{
+    float: right;
+  } 
+
+  h1{
+    font-weight: bold;
+    margin-left: 40px;
+    font-size: 4rem;
+    color: $white;
+  }
+
+}
+.text{
+  margin-left: 40px;
+  margin-top: 50px;
+  font-weight: bold;
+  color: $white;
+  font-size: 1.5rem;
+  line-height: 2;
+
+}
+
+.data_div{
+  display: flex;
+  width: 40vw;
+
+  img{
+    margin-top: 40px;
+    margin-left: 40px;
+    flex-direction: row;
+    height: 35vh;
+    width: 20vw;
+    border-radius: 15px;
+  }
+
+  img:hover{
+    transform: scale(1.1)
+  }
+}
+
+.info{
+  display: flex;
+  gap: 0;
+
+  h1{
+    font-weight: bold;
+    font-size: 3rem;
+    color: $white;
+    margin-left:40px;
+  }
+
+  span{
+    font-size: 3rem;
+    color: $blue;
+    margin-left: 10px;
+  }
+
+  .text_1{
+    font-size: 1.5rem;
+    color: $white;
+    margin-left:40px;
+    margin-top: 10px;
+    font-weight: bold;
+  }
+}
+
+
+// Styling Sliders
+
+.service_slider{
+  margin-left: 80px;
+  justify-content: center;
+  align-items: center;
+}
+.mySwiper{
+  background-color: $gray;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+
+  .text_3{
+    margin-left: 40px;
+    font-size: 1.5rem;
+    color: $blue;
+    font-weight: bold;
+  }
+  h1{
+    margin-left: 40px;
+    margin-top: 20px;
+    font-size: 4rem;
+    font-weight: bold;
+    color: $white;
+  }
+
+  .btn_1{
+    text-decoration: none;
+    font-weight: bold;
+    background:inherit;
+    border: 2px solid $blue;
+    color: $blue;
+    padding: 2rem;
+    float: right;
+    margin-right: 40px;
+  }
+
+  .btn_1:hover{
+    background-color: $blue;
+    color: $black;
+    cursor: pointer;
+    font-weight: bold;
+  }
+
+  .slide{
+    margin-top: 40px;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+  }
+
+  .image{
+    position: relative;
+    overflow: hidden;
+    height: 30rem;
+    width: 100%
+  }
+
+  img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    filter: grayscale(100%);
+    -webkit-filter: grayscale(100%);
+  }
+
+  img:hover{
+    cursor: pointer;
+      filter: none;
+      -webkit-filter: grayscale(0);
+  }
+}
+
+.content{
+  position: absolute;
+  bottom: 10px;
+  left: 15px;
+
+  .data{
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: $blue;
+    text-align: center;
+  }
+
+  .data1{
+    font-size: 2rem;
+    color: $white;
+  }
+
+  .data1:hover{
+    cursor: pointer;
+    text-decoration: underline;
+    color: $blue;
+  }
+}
+
+// Rating And Rewiew Styling
+.reating_review{
+  padding: 5rem;
+  background: $black;
+  margin-top: 80px;
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.review-slider{
+  margin-top: 40px;
+  padding: 2rem;
+
+  .wrapper{
+    display: flex;
+    gap: 2rem;
+  }
+
+  img{
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+  }
+
+  p{
+    font-size: 1.3rem;
+    color: $white;
+    font-weight: bold;
+  }
+
+  h3{
+    font-size: 2rem;
+    color: $blue;
+    font-weight: bold;
+  }
+
+  .box{
+    border: 1px solid $blue;
+    background: $gray;
+    text-align: center;
+    padding: 3rem 2rem;
+    outline-offset: -1rem;
+    transition: .2s linear;
+    height: 50vh;
+    width: 23vw;
+  }
+
+  .stars{
+    font-size: 2.5rem;
+    color: $orange;
+  }
+}
+
+// News Section
+.news_section{
+  padding: 5rem;
+  background-color: $black;
+}
+
+.news_wrapper{
+  margin-top: 40px !important;
+  margin: auto;
+  background-color: $black;
+  border: 2px solid $white;
+  border-radius:10px ;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+  width: 90vw;
+  display: flex;
+
+  .news_left{
+    padding: 2rem;
+    height: 100%;
+    width: 60%;
+    position: relative;
+    text-align: center;
+
+    p{
+      font-size: 2rem;
+      color: $white;
+      position: absolute;
+      bottom: 60px;
+      left: 30px;
+
+      i{
+        font-size: 2rem;
+        color: $white;
+      }
+    }
+
+    h3{
+      font-size: 3rem;
+      font-weight: bold;
+      color: $white;
+      position: absolute;
+      bottom: 30px;
+      left: 30px;
+    }
+
+    img{
+      border-radius: 20px;
+    }
+
+    img:hover{
+      transform: scale(1.05);
+    }
+  }
+
+  .news_right{
+    padding: 2rem;
+    height: 100%;
+    width: 30%;
+
+
+    p{
+      font-size: 1rem;
+      color: $white;
+      font-weight: bold;
+
+      i{
+        font-size: 1rem;
+        color: $white;
+        font-weight: bold;
+      }
+    }
+
+    h3{
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: $white;
+
+    }
+
+    h3:hover{
+      cursor: pointer;
+      text-decoration: underline;
+      color: $blue;
+    }
+
+
+    img{
+      height: 150px;
+      width: 150px;
+      border-radius: 20px;
+    }
+
+  }
+}
+
+//Price Section
+.price_review{
+  padding: 15rem;
+  background-color: $gray;
+  text-align: center;
+  justify-content: center;
+  align-self: center;
+}
+
+.price_container{
+  margin-top: 40px;
+  gap: 5rem;
+  display: flex;
+  
+
+  .price_col{
+    background-color: $black;
+    margin-top: 40px;
+    height: 65vh;
+    width: 30vw;
+    
+
+    h3{
+      margin-top: 20px;
+      font-size: 4rem;
+      color: $white;
+    }
+
+    span{
+      font-size: 1rem;
+      color: $orange;
+    }
+
+    p{
+      margin-top: 20px;
+      font-size: 2rem;
+      color: $blue;
+      font-weight: bold;
+    }
+
+    ul{
+      margin-top: 40px;
+      font-size: 1.6rem;
+      color: $white;
+      text-align: start;
+      margin-left: 10px;
+    }
+
+    ul i{
+      color: $blue;
+    }
+
+   li{
+      margin-top: 10px;
+      list-style: none;
+      text-align: start;
+    }
+
+  .btn_price{
+    margin-top: 10px;
+    font-weight: bold;
+    background-color: inherit;
+    border: 2px solid $blue;
+    color: $blue;
+    width: 200px;
+    height: 40px;
+  }
+
+  .btn_price:hover{
+    cursor: pointer;
+    color: $black;
+    font-weight: bold;
+    background-color: $blue;
+  }
+
+  }
+
+  .price_highlight{
+    background-color: $black;
+    margin-top: 20px;
+    border:2px solid $blue;
+    height: 70vh;
+    width: 30vw;
+
+    h3{
+      margin-top: 20px;
+      font-size: 4rem;
+      color: $white;
+    }
+
+    span{
+      font-size: 1rem;
+      color: $orange;
+    }
+
+    p{
+      margin-top: 20px;
+      font-size: 2rem;
+      color: $blue;
+      font-weight: bold;
+    }
+
+    ul{
+      margin-top: 40px;
+      font-size: 1.6rem;
+      color: $white;
+      text-align: start;
+      margin-left: 10px;
+    }
+
+    ul i{
+      color: $blue;
+    }
+
+   li{
+      margin-top: 10px;
+      list-style: none;
+      text-align: start;
+    }
+
+  .btn_price{
+    margin-top: 10px;
+    font-weight: bold;
+    background-color: inherit;
+    border: 2px solid $blue;
+    color: $blue;
+    width: 200px;
+    height: 40px;
+  }
+
+  .btn_price:hover{
+    cursor: pointer;
+    color: $black;
+    font-weight: bold;
+    background-color: $orange;
+  }
+
+  }
+}
+
+// Why US section 
+.container{
+  padding: 40px;
+  background:$black;
+  padding:15px 9%;
+  padding-bottom: 100px;
+
+  .box-container{
+    margin-top: 40px !important;
+    background: $gray;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    gap:15px;
+  }
+}
+
+
+
+.container .box-container .box{
+  border-radius: 50px;
+  border-bottom: 2px solid $blue;
+  box-shadow: 0 5px 10px rgba(0,0,0,.2);
+  border-radius: 5px;
+  padding:30px 20px;
+}
+
+.container .box-container .box h3{
+  color:$white;
+  font-size: 2rem;
+  padding:10px 0;
+}
+
+.container .box-container .box h3:hover{
+  cursor: pointer;
+  text-decoration: underline;
+  color: $blue;
+}
+
+.container .box-container .box p{
+  color:$white;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.container .box-container .box:hover{
+  box-shadow: 0 10px 15px rgba(0,0,0,.3);
+  transform: scale(1.03);
+}
+
+.container .box-container .box i{
+  color: $blue;
+  font-size: 3rem;
+}
+
+.container .box-container .box a{
+  font-size: 15px;
+  cursor: pointer;
+  color: $blue;
+}
+
+.btn_flex{
+  margin-top: 40px !important;
+  text-align: center;
+
+  .flex_btn{
+    height: 50px;
+    width: 150px;
+    cursor: pointer;
+    background-color:$blue ;
+    color: $black;
+  }
+  .flex_btn:hover{
+    background-color: $orange;
+  }
+}
+
+//Clients Images Styling
+.client_section{
+  background-color: $gray;
+  display: flex;
+}
+
+.clients{
+  margin-top: 40px !important;
+  margin: 30px;
+  img{
+    height: 100px;
+    width: 200px;
+  }
+}
+
+//Styling Footer
+
+footer{
+  width: 100%;
+  // position: absolute;
+  bottom: 0;
+  background: $black;
+  padding: 100px 0 30px;
+}
+
+.row{
+  width: 85%;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.col {
+  flex-basis: 25%;
+  padding: 10px;  
+  
+  img{
+  color: $blue;
+  height: 60px;
+  filter: none;
+  width: 60px;
+}
+
+  p{
+    margin-top: 20px !important;
+    font-size: 1.3rem;
+    color: $white;
+  }
+
+  h3{
+    margin-left: 20px !important;
+    color: $white;
+    font-size: 3rem;
+  }
+
+  i{
+    margin-left: 20px !important;
+    font-size: 2rem;
+    color: $blue;
+    font-weight: bold;
+  }
+  p{
+    font-size: 1.4rem;
+    color: $white;
+    font-weight: bold;
+  }
+}
+
+.quick_contacts{
+  margin-left: 20px !important;
+}
+
+hr{
+  border: 1px solid $white;
+}
+
+.next_row{
+  margin-top: 50px !important;
+  width: 85%;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.next_col {
+  flex-basis: 25%;
+  padding: 10px;  
+
+  h3{
+    margin-left: 20px !important;
+    color: $white;
+    font-size: 2rem;
+  }
+
+  i{
+    display: flex;
+    margin-left: 20px !important;
+    font-size: 2rem;
+    color: $white;
+    font-weight: bold;
+  }
+
+  input{
+    background: $gray;
+    margin-top: 20px !important;
+    width: 300px;
+    height: 40px;
+
+  }
+
+  ::placeholder{
+    color: $white;
+    font-weight: bold;
+  }
+
+  .btn{
+    bottom: 0;
+  }
+
+  .btn:hover{
+    background: $blue;
+  }
+
+  .card{
+    background: $gray;
+    display: flex;
+    margin: auto;
+    i{
+      font-size: 4rem;
+    }
+  }
+}
+
+.end{
+  background-color: $gray;
+  text-align: center;
+  margin: auto;
+  padding: 40px;
+
+  p{
+    color: $white;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+}
+
+// media queeries
+
+@media (max-width:1200px){
+
+  .header{
+    padding: 2rem;
+  }
+
+  section{
+    padding: 5rem 2rem;
+  }
+
+}
+
+@media (max-width:991px){
+
+  html{
+    font-size: 55%;
+  }
+
+  
+
+}
+
+@media (max-width:768px){
+
+  .header{
+    #menu_btn{
+      display:inline-block;
+    }
+
+    .navbar{
+      position: fixed;
+      top: 0; right: -110%;
+      background:$black;
+      z-index: 10000;
+      width: 35rem;
+      height: 50vh;
+      display: flex;
+      flex-flow: column;
+      align-items: center;
+      justify-content: center;
+
+      &.active{
+        right: 0;
+        box-shadow: 0 0 0 100vh rgba(0,0,0,0.8);
+      }
+    }
+
+    .navbar a{
+      margin: 1rem 0;
+      font-size: 2rem;
+
+    }
+
+    #nav_close{
+      display: block;
+      position: relative;
+      bottom: 1rem; left: 15rem;
+    }
+    
+  }
+
+  .hero .box{
+    justify-content: center;
+
+    &.second{
+      justify-content: center;
+    }
+
+    .content{
+      margin-bottom: 20%;
+      text-align: center;
+    }
+
+   .intro, span{
+      font-size: 3rem;
+    }
+
+    h2{
+      font-size: 4rem;
+    }
+
+    p{
+      font-size: 2.5rem;
+      line-height: 1.5;
+    }
+
+    .btn{
+      height: 40px;
+      display: block;
+      margin-bottom: 20px;
+    }
+
+    .btn_2{ 
+      margin-right: 120px;
+    }
+  }
+
+  .main_div{
+    display: block;
+  }
+
+  .div_major{
+    padding: 40px;
+    width:300px;
+  }
+
+  .div_2{
+    width:300px;
+    margin-top: 40px !important;
+    border-radius: 2px solid $blue;
+  }
+ 
+  .div_3{
+    width:300px;
+    margin-top: 40px !important;
+    bottom: 0;
+  }
+
+  .img_section{
+    img{
+      display: none;
+    }
+  }
+  .data_div{
+    display: block;
+  }
+
+
+
+
+  .btn_1{
+    display: block;
+  }
+
+  
+
+  .grab{
+    border-radius: 50%;
+    background-color: $blue;
+    color: $black;
+  }
+
+  .wrapper{
+    display: block;
+    width: 120%;
+  }
+
+  .box{
+    height: 20px;
+    width: 100vw;
+  }
+
+  .news_wrapper{
+    display: flex;
+  }
+
+  .news_right{
+  img{
+    height: 50px;
+    width: 50px;
+    border-radius: 20px;
+  }
+}
+}
+
+@media (max-width:450px){
+
+  html{
+    font-size: 50%;
+  }
+
+}
